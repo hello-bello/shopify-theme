@@ -4,18 +4,10 @@
   "private": true,
   "author": "Shopify Inc.",
   "description": "A barebones, Slate compatible, starting point for developing Shopify themes.",
-  "keywords": [
-    "shopify",
-    "theme"
-  ],
-  "bugs": "https://github.com/Shopify/skeleton-theme/issues",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Shopify/skeleton-theme.git"
-  },
   "devDependencies": {
-    "@shopify/slate-tools": "1.0.0-beta.8"
+    "@shopify/slate-tools": "1.0.0-beta.8",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1"
   },
   "scripts": {
     "start": "slate-tools start",
@@ -23,5 +15,9 @@
     "build": "slate-tools build",
     "deploy": "slate-tools build && slate-tools deploy",
     "zip": "slate-tools build && slate-tools zip"
+  },
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
   }
 }
