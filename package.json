@@ -10,6 +10,7 @@
     "@types/react-dom": "^16.0.8",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "foundation-sites": "^6.5.0-rc.3",
     "ts-loader": "^5.2.1",
     "typescript": "^3.1.1"
   },
