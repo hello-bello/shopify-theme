@@ -6,12 +6,12 @@ module.exports = {
     module: {
       rules: [{
         exclude: /node_modules/,
-        test: /\.jsx/,
-        use: ['babel-loader'],
+        test: /\.tsx?$/,
+        use: 'ts-loader',
       }]
     },
     resolve: {
-      extensions: ['.js', '.jsx'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }
   }
 }

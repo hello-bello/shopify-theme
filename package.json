@@ -6,8 +6,12 @@
   "description": "A barebones, Slate compatible, starting point for developing Shopify themes.",
   "devDependencies": {
     "@shopify/slate-tools": "1.0.0-beta.8",
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.8",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1"
+    "babel-preset-react": "^6.24.1",
+    "ts-loader": "^5.2.1",
+    "typescript": "^3.1.1"
   },
   "scripts": {
     "start": "slate-tools start",
