@@ -1,10 +1,10 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Skeleton theme",
+    "theme_name": "Hello Bello",
     "theme_version": "1.0.0",
-    "theme_author": "Shopify",
-    "theme_documentation_url": "https://github.com/Shopify/skeleton-theme",
-    "theme_support_url": "https://github.com/Shopify/skeleton-theme/issues"
+    "theme_author": "Ethan Jon",
+    "theme_documentation_url": "https://github.com/hello-bello/shopify-theme",
+    "theme_support_url": "https://github.com/hello-bello/shopify-theme"
   }
 ]

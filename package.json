@@ -2,7 +2,7 @@
   "name": "hello-bello",
   "version": "1.0.0",
   "private": true,
-  "author": "Ethan Jon Czahor",
+  "author": "Ethan Jon",
   "description": "The Shopify theme for Hello Bello.",
   "devDependencies": {
     "@shopify/slate-tools": "1.0.0-beta.8",
