@@ -7,4 +7,5 @@ class TestApp extends React.Component<{}> {
   }
 }
 
-ReactDOM.render(<TestApp />, document.getElementById('test-react-app'))
+const el = document.getElementById('test-react-app')
+if (el) ReactDOM.render(<TestApp />, el)

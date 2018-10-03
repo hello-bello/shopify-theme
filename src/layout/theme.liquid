@@ -18,7 +18,33 @@
 </head>
 
 <body>
-  {{ content_for_layout }}
-  <div id="test-react-app"></div>
+  <div class="grid-y medium-grid-frame">
+    <div class="top-bar cell">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text">{{ shop.name }}</li>
+          <li><a href="#">One</a></li>
+          <li><a href="#">Two</a></li>
+        </ul>
+      </div>
+
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li><a href="#">Three</a></li>
+          <li><a href="#">Four</a></li>
+          <li><a href="#">Five</a></li>
+          <li><a href="#">Six</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cell medium-auto">
+      {{ content_for_layout }}
+    </div>
+
+    <div class="cell shrink footer">
+      footer
+    </div>
+  </div>
 </body>
 </html>
