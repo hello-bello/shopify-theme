@@ -1,9 +1,9 @@
 {
-  "name": "skeleton-theme",
-  "version": "1.0.0-alpha.1",
+  "name": "hello-bello",
+  "version": "1.0.0",
   "private": true,
-  "author": "Shopify Inc.",
-  "description": "A barebones, Slate compatible, starting point for developing Shopify themes.",
+  "author": "Ethan Jon Czahor",
+  "description": "The Shopify theme for Hello Bello.",
   "devDependencies": {
     "@shopify/slate-tools": "1.0.0-beta.8",
     "@types/react": "^16.4.14",
