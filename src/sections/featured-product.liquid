@@ -1,10 +1,12 @@
 {%- assign product = all_products[section.settings.product] -%}
 
-<div class="card">
-  <img src="{{ product | img_url: '512x512' }}" />
-  <div class="card-section">
+<div>
+  <a href="{{ product.url }}">
+    <img alt="{{ product.title }}" src="{{ product | img_url: '512x512' }}" />
+  </a>
+  <a href="{{ product.url }}">
     <h3>{{ product.title }}</h3>
-  </div>
+  </a>
 </div>
 
 {% schema %}

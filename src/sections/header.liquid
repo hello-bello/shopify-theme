@@ -1,0 +1,18 @@
+{%- assign menu = linklists.main-menu -%}
+
+<div class="top-bar cell">
+  <div class="top-bar-left">
+    <ul class="menu">
+      <li><a href="/">{{ shop.name }}</a></li>
+      {% for link in menu.links %}
+        <li><a href="">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li><a href="#">Two</a></li>
+    </ul>
+  </div>
+</div>
