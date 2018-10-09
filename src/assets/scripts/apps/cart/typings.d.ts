@@ -4,6 +4,7 @@ interface Cart {
 
 interface Item {
   id: number,
+  quantity: number,
   title: string,
 }
 
