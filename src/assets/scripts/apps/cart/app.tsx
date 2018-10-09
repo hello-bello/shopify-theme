@@ -2,10 +2,14 @@ import * as React from 'react'
 
 export default class CartApp extends React.Component<{}, Cart> {
   public componentDidMount() {
-    window.CartApp = {
-      addToCart: this.addToCart,
-      removeFromCart: this.removeFromCart,
-    }
+    document.body.addEventListener('click', e => {
+      if (e.target instanceof Element) {
+        const el = e.target as Element
+        const addToCartId = el.getAttribute('data-add-to-cart-id')
+        if (addToCartId) { this.addToCart(addToCartId) }
+      }
+    })
+
     this.setState(window.cart)
   }
 

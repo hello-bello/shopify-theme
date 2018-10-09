@@ -10,8 +10,4 @@ interface Item {
 
 interface Window {
   cart: Cart,
-  CartApp: {
-    addToCart: (string) => Promise<boolean>,
-    removeFromCart: (Item) => Promise<boolean>,
-  }
 }
