@@ -11,6 +11,8 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "foundation-sites": "^6.5.0-rc.3",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
     "ts-loader": "^5.2.1",
     "tslint": "^5.11.0",
     "typescript": "^3.1.1"
@@ -22,8 +24,5 @@
     "deploy": "slate-tools build && slate-tools deploy",
     "zip": "slate-tools build && slate-tools zip"
   },
-  "dependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
-  }
+  "dependencies": {}
 }
