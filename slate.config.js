@@ -1,5 +1,4 @@
-// Configuration file for all things Slate.
-// For more information, visit https://github.com/Shopify/slate/wiki/Slate-Configuration
+const webpack = require('webpack')
 
 module.exports = {
   'webpack.extend': {
@@ -9,6 +8,14 @@ module.exports = {
         test: /\.tsx?$/,
         use: 'ts-loader',
       }]
+    },
+    plugins: [
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify('production')
+      }),
+    ],
+    optimization: {
+      minimize: true,
     },
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
