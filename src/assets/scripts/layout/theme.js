@@ -1,3 +1,3 @@
 import '../../styles/theme.scss'
 
-import '../apps/test'
+import '../apps/cart/'

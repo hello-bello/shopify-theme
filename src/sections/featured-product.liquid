@@ -7,6 +7,12 @@
   <a href="{{ product.url }}">
     <h3>{{ product.title }}</h3>
   </a>
+  {%- for variant in product.variants -%}
+    <div>
+      <span>{{ variant.title }}</span>
+      <button class="button" type="button" onclick="CartApp.addToCart({{ variant.id }})">Add to cart</button>
+    </div>
+  {%- endfor -%}
 </div>
 
 {% schema %}
