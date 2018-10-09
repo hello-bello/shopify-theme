@@ -7,7 +7,13 @@ module.exports = {
         exclude: /node_modules/,
         test: /\.tsx?$/,
         use: 'ts-loader',
-      }]
+      }, {
+        test: require.resolve('jquery'),
+        use: [{
+          loader: 'expose-loader',
+          options: '$'
+        }],
+      }],
     },
     plugins: [
       new webpack.DefinePlugin({
