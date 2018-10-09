@@ -5,6 +5,6 @@
     "module": "es6",
     "outDir": "./dist-ts",
     "noImplicitAny": false,
-    "target": "es5"
+    "target": "es6"
   }
 }

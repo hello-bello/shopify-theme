@@ -25,6 +25,9 @@
       {{ content_for_layout }}
 
       <div id="cart-app"></div>
+      <script>
+        var cart = {{ cart | json }};
+      </script>
     </div>
 
     {% section 'footer' %}
