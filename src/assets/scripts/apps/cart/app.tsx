@@ -1,16 +1,13 @@
 import * as React from 'react'
 
+import addClickListenerForAttr from '../../utils/add-click-listener-for-attr'
+import withLoadingUI from '../../utils/with-loading-ui'
+
 export default class CartApp extends React.Component<{}, Cart> {
   public componentDidMount() {
-    document.body.addEventListener('click', e => {
-      if (e.target instanceof Element) {
-        const el = e.target as Element
-        const addToCartId = el.getAttribute('data-add-to-cart-id')
-        if (addToCartId) { this.addToCart(addToCartId) }
-      }
-    })
-
     this.setState(window.cart)
+    addClickListenerForAttr('data-add-to-cart-id', this.addToCartWithDom)
+    addClickListenerForAttr('data-remove-from-cart-id', this.removeFromCartWithDom)
   }
 
   public render() {
@@ -27,7 +24,7 @@ export default class CartApp extends React.Component<{}, Cart> {
       </div>
       {this.state.items.map(item => <div key={item.id}>
         <span>{item.quantity} x {item.title}</span>
-        <button className='button' onClick={() => this.removeFromCart(item)}>Remove</button>
+        <button className='button' data-remove-from-cart-id={item.id}>Remove</button>
       </div>)}
     </div>
   }
@@ -50,15 +47,19 @@ export default class CartApp extends React.Component<{}, Cart> {
     }
   }
 
+  private addToCartWithDom = async (variantId: string, target: HTMLElement) => {
+    withLoadingUI(target, () => this.addToCart(variantId))
+  }
+
   private getCart = async () => {
     const res = await fetch('/cart.js')
     const cart = await res.json()
     this.setState(cart)
   }
 
-  private removeFromCart = async (item: Item): Promise<boolean> => {
+  private removeFromCart = async (variantId: string): Promise<boolean> => {
     const body = new FormData()
-    body.append('id', item.id.toString())
+    body.append('id', variantId)
     body.append('quantity', '0')
 
     try {
@@ -71,5 +72,9 @@ export default class CartApp extends React.Component<{}, Cart> {
     } catch (e) {
       return false
     }
+  }
+
+  private removeFromCartWithDom = async (variantId: string, target: HTMLElement) => {
+    withLoadingUI(target, () => this.removeFromCart(variantId))
   }
 }
