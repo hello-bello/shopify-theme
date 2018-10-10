@@ -1,0 +1,24 @@
+$small-width: 150px;
+$medium-width: 300px;
+
+.drawer {
+  background-color: darkgray;
+  height: 100%;
+  overflow-x: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX($small-width);
+  transition: transform 0.2s ease-out;
+  width: $small-width;
+  z-index: 1;
+
+  @include breakpoint(medium) {
+    transform: translateX($medium-width);
+    width: $medium-width;
+  }
+
+  &.open {
+    transform: translateX(0);
+  }
+}

@@ -23,14 +23,16 @@
 
     <div class="cell medium-auto">
       {{ content_for_layout }}
-
-      <div id="cart-app"></div>
-      <script>
-        var cart = {{ cart | json }};
-      </script>
     </div>
 
     {% section 'footer' %}
+  </div>
+  
+  <div class="drawer" id="cart-drawer">
+    <div id="cart-app"></div>
+    <script>
+      var cart = {{ cart | json }};
+    </script>
   </div>
 </body>
 </html>

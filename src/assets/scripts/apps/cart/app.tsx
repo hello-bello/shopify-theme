@@ -17,7 +17,14 @@ export default class CartApp extends React.Component<{}, Cart> {
     if (!this.state) { return null }
 
     return <div>
-      <h2>Cart</h2>
+      <div className='grid-x'>
+        <div className='cell small-6'>
+          <h2 className='h5'>Cart</h2>
+        </div>
+        <div className='cell small-6 text-right'>
+          <a href='#' data-close-drawer='cart-drawer'>Close</a>
+        </div>
+      </div>
       {this.state.items.map(item => <div key={item.id}>
         <span>{item.quantity} x {item.title}</span>
         <button className='button' onClick={() => this.removeFromCart(item)}>Remove</button>
@@ -36,6 +43,7 @@ export default class CartApp extends React.Component<{}, Cart> {
         method: 'POST',
       })
       await this.getCart()
+      window.Drawer.open('cart-drawer')
       return true
     } catch (e) {
       return false
