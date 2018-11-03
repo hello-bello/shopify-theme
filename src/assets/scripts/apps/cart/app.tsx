@@ -5,7 +5,7 @@ import withLoadingUI from '../../utils/with-loading-ui'
 
 export default class CartApp extends React.Component<{}, Cart> {
   public componentDidMount() {
-    this.setState(window.cart)
+    this.setState(() => window.cart)
     addClickListenerForAttr('data-add-to-cart-id', this.addToCartWithDom)
     addClickListenerForAttr('data-remove-from-cart-id', this.removeFromCartWithDom)
   }
@@ -48,13 +48,15 @@ export default class CartApp extends React.Component<{}, Cart> {
   }
 
   private addToCartWithDom = async (variantId: string, target: HTMLElement) => {
-    withLoadingUI(target, () => this.addToCart(variantId))
+    withLoadingUI(target, async () => {
+      await this.addToCart(variantId)
+    })
   }
 
   private getCart = async () => {
     const res = await fetch('/cart.js')
     const cart = await res.json()
-    this.setState(cart)
+    this.setState(() => cart)
   }
 
   private removeFromCart = async (variantId: string): Promise<boolean> => {
@@ -75,6 +77,8 @@ export default class CartApp extends React.Component<{}, Cart> {
   }
 
   private removeFromCartWithDom = async (variantId: string, target: HTMLElement) => {
-    withLoadingUI(target, () => this.removeFromCart(variantId))
+    withLoadingUI(target, async () => {
+      await this.removeFromCart(variantId)
+    })
   }
 }

@@ -1,4 +1,4 @@
-export default async (target: HTMLElement, fn: () => Promise<any>) => {
+export default async (target: HTMLElement, fn: () => Promise<void> | void) => {
   const oldBackgroundColor = target.style.backgroundColor
   const oldInnerHTML = target.innerHTML
 
