@@ -5,7 +5,6 @@
   ],
   "jsRules": {},
   "rules": {
-    "arrow-parens": false,
     "no-console": false,
     "quotemark": false,
     "semicolon": false

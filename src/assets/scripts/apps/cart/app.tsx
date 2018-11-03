@@ -22,7 +22,7 @@ export default class CartApp extends React.Component<{}, Cart> {
           <a href='#' data-close-drawer='cart-drawer'>Close</a>
         </div>
       </div>
-      {this.state.items.map(item => <div key={item.id}>
+      {this.state.items.map((item) => <div key={item.id}>
         <span>{item.quantity} x {item.title}</span>
         <button className='button' data-remove-from-cart-id={item.id}>Remove</button>
       </div>)}
