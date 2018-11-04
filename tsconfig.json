@@ -2,7 +2,7 @@
   "compilerOptions": {
     "allowJs": true,
     "jsx": "react",
-    "module": "es6",
+    "module": "commonjs",
     "outDir": "./dist-ts",
     "target": "es6",
     "strict": true

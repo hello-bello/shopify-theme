@@ -12,3 +12,5 @@ interface Item {
 interface Window {
   cart: Cart,
 }
+
+declare module '@shopify/theme-cart'
