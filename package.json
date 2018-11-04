@@ -5,7 +5,6 @@
   "author": "Ethan Jon",
   "description": "The Shopify theme for Hello Bello.",
   "devDependencies": {
-    "@shopify/slate-tools": "1.0.0-beta.8",
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.8",
     "babel-preset-env": "^1.7.0",
@@ -26,5 +25,7 @@
     "deploy": "slate-tools build && slate-tools deploy",
     "zip": "slate-tools build && slate-tools zip"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@shopify/slate-tools": "^1.0.0-beta.12"
+  }
 }
