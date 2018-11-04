@@ -1,3 +1,4 @@
+import * as cart from '@shopify/theme-cart'
 import * as React from 'react'
 
 import addClickListenerForAttr from '../../utils/add-click-listener-for-attr'
@@ -6,8 +7,8 @@ import withLoadingUI from '../../utils/with-loading-ui'
 export default class CartApp extends React.Component<{}, Cart> {
   public componentDidMount() {
     this.setState(() => window.cart)
-    addClickListenerForAttr('data-add-to-cart-id', this.addToCartWithDom)
-    addClickListenerForAttr('data-remove-from-cart-id', this.removeFromCartWithDom)
+    addClickListenerForAttr('data-add-to-cart-variant-id', this.addToCartWithDom)
+    addClickListenerForAttr('data-remove-from-cart-key', this.removeFromCartWithDom)
   }
 
   public render() {
@@ -24,21 +25,14 @@ export default class CartApp extends React.Component<{}, Cart> {
       </div>
       {this.state.items.length ? this.state.items.map((item) => <div key={item.id}>
         <span>{item.quantity} x {item.title}</span>
-        <button className='button' data-remove-from-cart-id={item.id}>Remove</button>
+        <button className='button' data-remove-from-cart-key={item.key}>Remove</button>
       </div>) : <div>Your cart is empty!</div>}
     </div>
   }
 
-  private addToCart = async (variantId: string): Promise<boolean> => {
-    const body = new FormData()
-    body.append('id', variantId)
-    body.append('quantity', '1')
-
+  private addToCart = async (variantId: number): Promise<boolean> => {
     try {
-      await fetch('/cart/add.js', {
-        body,
-        method: 'POST',
-      })
+      await cart.addItem(variantId, {properties: {}, quantity: 1})
       await this.getCart()
       window.Drawer.open('cart-drawer')
       return true
@@ -49,26 +43,18 @@ export default class CartApp extends React.Component<{}, Cart> {
 
   private addToCartWithDom = async (variantId: string, target: HTMLElement) => {
     withLoadingUI(target, async () => {
-      await this.addToCart(variantId)
+      await this.addToCart(parseInt(variantId, 10))
     })
   }
 
   private getCart = async () => {
-    const res = await fetch('/cart.js')
-    const cart = await res.json()
-    this.setState(() => cart)
+    const contents = await cart.getState()
+    this.setState(() => contents)
   }
 
-  private removeFromCart = async (variantId: string): Promise<boolean> => {
-    const body = new FormData()
-    body.append('id', variantId)
-    body.append('quantity', '0')
-
+  private removeFromCart = async (key: string): Promise<boolean> => {
     try {
-      await fetch('/cart/change.js', {
-        body,
-        method: 'POST',
-      })
+      await cart.removeItem(key)
       await this.getCart()
       return true
     } catch (e) {
@@ -76,9 +62,9 @@ export default class CartApp extends React.Component<{}, Cart> {
     }
   }
 
-  private removeFromCartWithDom = async (variantId: string, target: HTMLElement) => {
+  private removeFromCartWithDom = async (key: string, target: HTMLElement) => {
     withLoadingUI(target, async () => {
-      await this.removeFromCart(variantId)
+      await this.removeFromCart(key)
     })
   }
 }
