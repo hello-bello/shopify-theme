@@ -1,1 +1,8 @@
-{}
+{
+  "cart": {
+    "general": {
+      "empty": "Your cart is empty",
+      "title": "Cart"
+    }
+  }
+}

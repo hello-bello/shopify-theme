@@ -8,9 +8,13 @@
     </ul>
   </div>
 
-  <div class="top-bar-right">
-    <ul class="menu">
-      <li><a href="#" data-open-drawer="cart-drawer">Cart</a></li>
-    </ul>
-  </div>
+  {%- unless request.path == '/cart' -%}
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li>
+          <a href="#" data-open-drawer="cart-drawer">Cart</a>
+        </li>
+      </ul>
+    </div>
+  {%- endunless -%}
 </div>

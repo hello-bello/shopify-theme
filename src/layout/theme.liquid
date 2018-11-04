@@ -28,6 +28,8 @@
       {% section 'footer' %}
     </div>
     
-    {% include 'cart-drawer' %}
+    {%- unless request.path == '/cart' -%}
+      {% include 'cart-drawer' %}
+    {%- endunless -%}
   </body>
 </html>
