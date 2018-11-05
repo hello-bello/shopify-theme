@@ -1,5 +1,6 @@
 import * as cart from '@shopify/theme-cart'
 import * as React from 'react'
+import {Trans} from 'react-i18next'
 
 import addClickListenerForAttr from '../../utils/add-click-listener-for-attr'
 import withLoadingUI from '../../utils/with-loading-ui'
@@ -15,6 +16,8 @@ export default class CartApp extends React.Component<{}, Cart> {
     if (!this.state) { return null }
 
     return <div>
+      <Trans>Welcome to React</Trans>
+
       <div className='grid-x'>
         <div className='cell small-6'>
           <h2 className='h5'>Cart</h2>
