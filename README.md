@@ -1,1 +1,1 @@
-# Hello Bello Shopify Theme
+# Theme
