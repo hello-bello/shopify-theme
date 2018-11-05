@@ -1,0 +1,38 @@
+{%- form 'customer_login' -%}
+  <h1>{{ 'customer.login.title' | t }}</h1>
+
+  {{ form.errors | default_errors }}
+
+  <label for="CustomerEmail">{{ 'customer.login.email' | t }}</label>
+  <input type="email"
+    name="customer[email]"
+    id="CustomerEmail"
+    placeholder="{{ 'customer.login.email' | t }}"
+    spellcheck="false"
+    autocomplete="off"
+    autocapitalize="off"
+    autofocus
+  />
+
+  {% if form.password_needed %}
+    <label for="CustomerPassword">{{ 'customer.login.password' | t }}</label>
+    <input type="password"
+      name="customer[password]"
+      id="CustomerPassword"
+      placeholder="{{ 'customer.login.password' | t }}"
+    />
+  {% endif %}
+
+  <input type="submit" class="button" value="{{ 'customer.login.sign_in' | t }}" />
+
+  <a href="/">{{ 'customer.login.cancel' | t }}</a>
+
+  <a href="/account/register">
+    {{ 'layout.customer.create_account' | t }}
+  </a>
+
+  {% if form.password_needed %}
+    <a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a>
+  {% endif %}
+
+{%- endform -%}

@@ -4,5 +4,34 @@
       "empty": "Your cart is empty",
       "title": "Cart"
     }
+  },
+  "customer": {
+    "account": {
+      "title": "My account"
+    },
+    "login": {
+      "cancel": "Cancel",
+      "email": "Email",
+      "forgot_password": "Forgot password?",
+      "password": "Password",
+      "sign_in": "Login",
+      "title": "Login"
+    },
+    "register": {
+      "cancel": "Cancel",
+      "email": "Email",
+      "first_name": "First name",
+      "last_name": "Last Name",
+      "password": "Password",
+      "submit": "Submit",
+      "title": "Create account"
+    }
+  },
+  "layout": {
+    "customer": {
+      "create_account": "Create account",
+      "login": "Login",
+      "logout": "Logout"
+    }
   }
 }
