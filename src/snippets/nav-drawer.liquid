@@ -11,11 +11,7 @@
     </div>
   </div>
 
-  <ul class="menu vertical position-relative" style="top: -100px;">
-    {% for link in linklists.main-menu.links %}
-      <li>
-        <a class="h5-6" href="{{ link.url }}">{{ link.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+  <div class="position-relative" style="top: -100px;">
+    {%- include 'main-menu' -%}
+  </div>
 </div>
