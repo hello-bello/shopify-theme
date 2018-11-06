@@ -1,8 +1,7 @@
-@import 'oakes-grotesk';
-
 $body-font-family: 'Oakes Grotesk', sans-serif;
-
 @import '~foundation-sites/scss/foundation';
 @include foundation-everything($prototype: true);
 
+@import 'colors';
 @import 'drawer';
+@import 'oakes-grotesk';

@@ -1,0 +1,9 @@
+$colors: (
+  cornflower-lilac: #ffb3ab,
+  sea-pink: #f09491,
+);
+
+@each $name, $hex in $colors {
+  .bgc-#{$name} { background-color: $hex; }
+  .c-#{$name} { color: $hex; }
+}
