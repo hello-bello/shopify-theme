@@ -1,12 +1,12 @@
-<div style="width: 260px;">
-  <a href="/" class="bgc-cornflower-lilac padding-vertical-2 text-center display-block">
+<div class="links-black" style="width: 260px;">
+  <a href="/" class="bg-cornflower-lilac padding-vertical-2 text-center display-block">
     <img src="{{ 'logo.svg' | asset_url }}" alt="logo" style="height: 215px;">
   </a>
 
   <ul class="menu vertical">
     {% for link in linklists.main-menu.links %}
       <li>
-        <a href="{{ link.url }}">{{ link.title }}</a>
+        <a href="{{ link.url }}" class="h5-6">{{ link.title }}</a>
       </li>
     {% endfor %}
   </ul>

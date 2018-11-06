@@ -6,6 +6,7 @@ $colors: (
 );
 
 @each $name, $hex in $colors {
-  .bgc-#{$name} { background-color: $hex; }
-  .c-#{$name} { color: $hex; }
+  .bg-#{$name} { background-color: $hex; }
+  .text-#{$name} { color: $hex; }
+  .links-#{$name} { a { color: $hex; } }
 }

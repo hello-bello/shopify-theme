@@ -1,4 +1,4 @@
-<div class="drawer left bgc-cornflower-lilac" id="nav-drawer">
+<div class="drawer left bg-cornflower-lilac links-white" id="nav-drawer">
   <div class="grid-x">
     <div class="cell auto">
       <a href="#" data-close-drawer="nav-drawer">Close</a>
@@ -14,7 +14,7 @@
   <ul class="menu vertical position-relative" style="top: -100px;">
     {% for link in linklists.main-menu.links %}
       <li>
-        <a href="{{ link.url }}">{{ link.title }}</a>
+        <a class="h5-6" href="{{ link.url }}">{{ link.title }}</a>
       </li>
     {% endfor %}
   </ul>
