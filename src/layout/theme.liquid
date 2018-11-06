@@ -19,18 +19,18 @@
 
   <body>
     <div class="grid-y medium-grid-frame">
-      {% section 'header' %}
+      <div class="show-for-small-only">{% section 'header' %}</div>
 
-      <div class="cell medium-auto">
-        {{ content_for_layout }}
+      <div class="cell medium-auto grid-x">
+        <div class="cell shrink show-for-medium">{%- include 'nav' -%}</div>
+        <div class="cell auto">{{ content_for_layout }}</div>
       </div>
 
-      {% section 'footer' %}
+      <div class="cell shrink">{% section 'footer' %}</div>
     </div>
     
-    {%- unless request.path == '/cart' -%}
-      {% include 'cart-drawer' %}
-    {%- endunless -%}
+    {%- include 'cart-drawer' unless request.path == '/cart' -%}
+    {%- include 'nav-drawer' -%}
 
     {% include 'var.cart' %}
     {% include 'var.locale' %}

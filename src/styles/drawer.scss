@@ -1,24 +1,32 @@
-$small-width: 150px;
-$medium-width: 300px;
+$small-width: 90%;
+$medium-width: 260px;
 
 .drawer {
-  background-color: darkgray;
   height: 100%;
   overflow-x: hidden;
   position: fixed;
-  right: 0;
   top: 0;
-  transform: translateX($small-width);
-  transition: transform 0.2s ease-out;
   width: $small-width;
   z-index: 1;
 
+  &.left { 
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+  &.right {
+    right: 0;
+    transform: translateX(100%);
+  }
+
   @include breakpoint(medium) {
-    transform: translateX($medium-width);
+    &.left { transform: translateX(-$medium-width); }
+    &.right { transform: translateX($medium-width); }
     width: $medium-width;
   }
 
   &.open {
     transform: translateX(0);
+    transition: transform 0.2s ease-out;
   }
 }

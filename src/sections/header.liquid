@@ -1,20 +1,15 @@
-<div class="top-bar cell">
-  <div class="top-bar-left">
-    <ul class="menu">
-      <li><a href="/">{{ shop.name }}</a></li>
-      {% for link in linklists.main-menu.links %}
-        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-      {% endfor %}
-    </ul>
+<div class="grid-x">
+  <div class="cell shrink">
+    <a href="#" data-open-drawer="nav-drawer">Menu</a>
   </div>
 
-  {%- unless request.path == '/cart' -%}
-    <div class="top-bar-right">
-      <ul class="menu">
-        <li>
-          <a href="#" data-open-drawer="cart-drawer">Cart</a>
-        </li>
-      </ul>
-    </div>
-  {%- endunless -%}
+  <div class="cell auto text-center">
+    Logo
+  </div>
+
+  <div class="cell shrink">
+    {%- unless request.path == '/cart' -%}
+      <a href="#" data-open-drawer="cart-drawer">Cart</a>
+    {%- endunless -%}
+  </div>
 </div>
