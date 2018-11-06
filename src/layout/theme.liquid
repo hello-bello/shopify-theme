@@ -31,5 +31,7 @@
     {%- unless request.path == '/cart' -%}
       {% include 'cart-drawer' %}
     {%- endunless -%}
+
+    {% include 'i18n' %}
   </body>
 </html>

@@ -1,11 +1,11 @@
 import * as cart from '@shopify/theme-cart'
 import * as React from 'react'
-import {Trans} from 'react-i18next'
+import {withI18n, WithI18n} from 'react-i18next'
 
 import addClickListenerForAttr from '../../utils/add-click-listener-for-attr'
 import withLoadingUI from '../../utils/with-loading-ui'
 
-export default class CartApp extends React.Component<{}, Cart> {
+class CartApp extends React.Component<WithI18n, Cart> {
   public componentDidMount() {
     this.setState(() => window.cart)
     addClickListenerForAttr('data-add-to-cart-variant-id', this.addToCartWithDom)
@@ -15,21 +15,22 @@ export default class CartApp extends React.Component<{}, Cart> {
   public render() {
     if (!this.state) { return null }
 
-    return <div>
-      <Trans>Welcome to React</Trans>
+    const {t} = this.props
+    const {items} = this.state
 
+    return <div>
       <div className='grid-x'>
         <div className='cell small-6'>
-          <h2 className='h5'>Cart</h2>
+          <h2 className='h5'>{t('cart.general.title')}</h2>
         </div>
         <div className='cell small-6 text-right'>
-          <a href='#' data-close-drawer='cart-drawer'>Close</a>
+          <a href='#' data-close-drawer='cart-drawer'>{t('cart.general.close')}</a>
         </div>
       </div>
-      {this.state.items.length ? this.state.items.map((item) => <div key={item.id}>
+      {items.length ? items.map((item) => <div key={item.id}>
         <span>{item.quantity} x {item.title}</span>
-        <button className='button' data-remove-from-cart-key={item.key}>Remove</button>
-      </div>) : <div>Your cart is empty!</div>}
+        <button className='button' data-remove-from-cart-key={item.key}>{t('cart.general.remove')}</button>
+      </div>) : <div>{t('cart.general.empty')}</div>}
     </div>
   }
 
@@ -71,3 +72,5 @@ export default class CartApp extends React.Component<{}, Cart> {
     })
   }
 }
+
+export default withI18n()(CartApp)
