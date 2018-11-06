@@ -19,10 +19,10 @@
 
   <body>
     <div class="grid-y medium-grid-frame">
-      <div class="show-for-small-only">{% section 'header' %}</div>
+      <div class="hide-for-large">{% section 'header' %}</div>
 
       <div class="cell medium-auto grid-x">
-        <div class="cell shrink show-for-medium">{%- include 'nav' -%}</div>
+        <div class="cell shrink show-for-large">{%- include 'nav' -%}</div>
         <div class="cell auto">{{ content_for_layout }}</div>
       </div>
 

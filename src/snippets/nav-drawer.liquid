@@ -1,10 +1,21 @@
 <div class="drawer left bgc-cornflower-lilac" id="nav-drawer">
-  <ul class="menu vertical">
+  <div class="grid-x">
+    <div class="cell auto">
+      <a href="#" data-close-drawer="nav-drawer">Close</a>
+    </div>
+
+    <div class="cell shrink">
+      <a href="/">
+        <img src="{{ 'logo.svg' | asset_url }}" alt="logo" style="width: 130px;">
+      </a>
+    </div>
+  </div>
+
+  <ul class="menu vertical position-relative" style="top: -100px;">
     {% for link in linklists.main-menu.links %}
       <li>
         <a href="{{ link.url }}">{{ link.title }}</a>
       </li>
     {% endfor %}
   </ul>
-  <a href="#" data-close-drawer="nav-drawer">Close</a>
 </div>
