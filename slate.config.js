@@ -8,6 +8,9 @@ module.exports = {
         test: /\.tsx?$/,
         use: 'ts-loader',
       }, {
+        test: /\.ttf$/,
+        use: 'file-loader',
+      }, {
         test: require.resolve('jquery'),
         use: [{
           loader: 'expose-loader',
