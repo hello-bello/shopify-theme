@@ -1,10 +1,10 @@
 [
   {
-    "name": "theme_info",
-    "theme_name": "Launched LA",
+    "name": "Hello Bello",
+    "theme_name": "Hello Bello",
     "theme_version": "1.0.0",
     "theme_author": "Ethan Jon",
-    "theme_documentation_url": "https://github.com/launched-la/theme",
-    "theme_support_url": "https://github.com/launched-la/theme"
+    "theme_documentation_url": "https://github.com/launched-la/hb-theme",
+    "theme_support_url": "https://github.com/launched-la/hb-theme"
   }
 ]
