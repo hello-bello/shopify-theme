@@ -1,0 +1,9 @@
+<div>
+  {%- for product in collection.products -%}
+    <div>
+      <h2>
+        <a href="{{ product.url }}">{{ product.title }}</a>
+      </h2>
+    </div>
+  {%- endfor -%}
+</div>

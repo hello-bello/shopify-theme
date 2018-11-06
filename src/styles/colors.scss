@@ -1,6 +1,8 @@
 $colors: (
+  black: #000,
   cornflower-lilac: #ffb3ab,
   sea-pink: #f09491,
+  white: #fff,
 );
 
 @each $name, $hex in $colors {
