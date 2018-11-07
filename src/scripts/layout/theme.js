@@ -1,4 +1,4 @@
-import '../../styles/theme.scss'
+import '../../styles/layout/theme.scss'
 
 import '../i18n/'
 import '../apps/cart/'

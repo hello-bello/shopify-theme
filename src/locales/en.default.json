@@ -27,6 +27,13 @@
       "title": "Create account"
     }
   },
+  "general": {
+    "password_page": {
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Password",
+      "login_form_submit": "Submit"
+    }
+  },
   "layout": {
     "customer": {
       "create_account": "Create account",
