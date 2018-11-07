@@ -6,43 +6,19 @@
 
   <div class="cell large-6 grid-x">
     <div class="cell medium-6 large-3">
-      <div>{{ 'layout.footer.menu_titles.account' | t }}</div>
-
-      {% for link in linklists.footer.links %}
-        <li>
-          <a href="{{ link.url }}">X {{ link.title }}</a>
-        </li>
-      {% endfor %}
+      {%- include 'footer-menu', title_key: 'layout.footer.menu_titles.account', menu: linklists.footer, accordion: 'footer' -%}
     </div>
 
     <div class="cell medium-6 large-3">
-      <div>{{ 'layout.footer.menu_titles.shop' | t }}</div>
-
-      {% for link in linklists.footer-shop-menu.links %}
-        <li>
-          <a href="{{ link.url }}">X {{ link.title }}</a>
-        </li>
-      {% endfor %}
+      {%- include 'footer-menu', title_key: 'layout.footer.menu_titles.shop', menu: linklists.footer-shop-menu, accordion: 'footer-shop' -%}
     </div>
 
     <div class="cell medium-6 large-3">
-      <div>{{ 'layout.footer.menu_titles.company' | t }}</div>
-
-      {% for link in linklists.footer-company-menu.links %}
-        <li>
-          <a href="{{ link.url }}">X {{ link.title }}</a>
-        </li>
-      {% endfor %}
+      {%- include 'footer-menu', title_key: 'layout.footer.menu_titles.company', menu: linklists.footer-company-menu, accordion: 'footer-company' -%}
     </div>
 
     <div class="cell medium-6 large-3">
-      <div>{{ 'layout.footer.menu_titles.connect' | t }}</div>
-
-      {% for link in linklists.footer-connect-menu.links %}
-        <li>
-          <a href="{{ link.url }}">X {{ link.title }}</a>
-        </li>
-      {% endfor %}
+      {%- include 'footer-menu', title_key: 'layout.footer.menu_titles.connect', menu: linklists.footer-connect-menu, accordion: 'footer-connect' -%}
     </div>
   </div>
 </div>

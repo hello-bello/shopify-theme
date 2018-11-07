@@ -1,0 +1,23 @@
+<div class="hide-for-medium bg-sea-pink text-white links-white">
+  <a class="display-block" href="#" data-accordion-menu-toggle="{{ accordion }}">{{ title_key | t }}</a>
+
+  <ul class="menu vertical accordion-menu" data-accordion-menu="{{ accordion }}">
+    {% for link in menu.links %}
+      <li>
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="show-for-medium">
+  <div>{{ title_key | t }}</div>
+
+  <ul class="menu vertical">
+    {% for link in menu.links %}
+      <li>
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
