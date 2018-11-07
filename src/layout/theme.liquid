@@ -17,17 +17,15 @@
     {{ content_for_header }}
   </head>
 
-  <body>
-    <div class="grid-y grid-frame">
-      <div class="hide-for-large">{% section 'header' %}</div>
+  <body class="grid-y" style="min-height: 100vh;">
+    <div class="cell shrink hide-for-large">{% section 'header' %}</div>
 
-      <div class="cell auto grid-x">
-        <div class="cell shrink show-for-large">{%- include 'nav' -%}</div>
-        <div class="cell auto">{{ content_for_layout }}</div>
-      </div>
-
-      <div class="cell shrink">{% section 'footer' %}</div>
+    <div class="cell flex-child-grow grid-x">
+      <div class="cell shrink show-for-large">{%- include 'nav' -%}</div>
+      <div class="cell auto">{{ content_for_layout }}</div>
     </div>
+
+    <div class="cell shrink">{% section 'footer' %}</div>
 
     {%- unless request.path == '/cart' -%}
       {%- include 'cart-button', class: 'position-fixed show-for-large', style: 'top: 1rem; right: 1rem;' -%}
