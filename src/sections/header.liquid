@@ -1,6 +1,8 @@
 <div class="grid-x">
   <div class="cell shrink">
-    <a href="#" data-open-drawer="nav-drawer">Menu</a>
+    <a href="#" data-open-drawer="nav-drawer">
+      Menu
+    </a>
   </div>
 
   <div class="cell auto text-center">
@@ -8,8 +10,6 @@
   </div>
 
   <div class="cell shrink">
-    {%- unless request.path == '/cart' -%}
-      <a href="#" data-open-drawer="cart-drawer">Cart</a>
-    {%- endunless -%}
+    {%- include 'cart-button' unless request.path == '/cart' -%}
   </div>
 </div>
