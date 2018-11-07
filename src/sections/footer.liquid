@@ -1,3 +1,48 @@
-<div class="bg-cornflower-lilac">
-  footer
+<div class="bg-cornflower-lilac grid-x">
+  <div class="cell large-6">
+    <div>{{ 'layout.footer.newsletter_title' | t }}</div>
+    <div>{{ 'layout.footer.newsletter_body' | t }}</div>
+  </div>
+
+  <div class="cell large-6 grid-x">
+    <div class="cell medium-6 large-3">
+      <div>{{ 'layout.footer.menu_titles.account' | t }}</div>
+
+      {% for link in linklists.footer.links %}
+        <li>
+          <a href="{{ link.url }}">X {{ link.title }}</a>
+        </li>
+      {% endfor %}
+    </div>
+
+    <div class="cell medium-6 large-3">
+      <div>{{ 'layout.footer.menu_titles.shop' | t }}</div>
+
+      {% for link in linklists.footer-shop-menu.links %}
+        <li>
+          <a href="{{ link.url }}">X {{ link.title }}</a>
+        </li>
+      {% endfor %}
+    </div>
+
+    <div class="cell medium-6 large-3">
+      <div>{{ 'layout.footer.menu_titles.company' | t }}</div>
+
+      {% for link in linklists.footer-company-menu.links %}
+        <li>
+          <a href="{{ link.url }}">X {{ link.title }}</a>
+        </li>
+      {% endfor %}
+    </div>
+
+    <div class="cell medium-6 large-3">
+      <div>{{ 'layout.footer.menu_titles.connect' | t }}</div>
+
+      {% for link in linklists.footer-connect-menu.links %}
+        <li>
+          <a href="{{ link.url }}">X {{ link.title }}</a>
+        </li>
+      {% endfor %}
+    </div>
+  </div>
 </div>
