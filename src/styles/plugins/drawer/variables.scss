@@ -1,0 +1,5 @@
+$closeTransitionDuration: 0.1s; // keep it in decimal seconds
+
+:export {
+  closeTransitionDuration: $closeTransitionDuration;
+}

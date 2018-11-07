@@ -1,3 +1,5 @@
+@import 'variables';
+
 $small-width: 90%;
 $medium-width: 342px;
 
@@ -28,5 +30,9 @@ $medium-width: 342px;
   &.open {
     transform: translateX(0);
     transition: transform 0.2s ease-out;
+  }
+
+  &.closing {
+    transition: transform $closeTransitionDuration ease-out;
   }
 }
