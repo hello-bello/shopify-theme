@@ -18,6 +18,8 @@ class CartApp extends React.Component<WithI18n, Cart> {
     const {t} = this.props
     const {items} = this.state
 
+    this.renderExternalDOM()
+
     return <div>
       <div className='grid-x'>
         <div className='cell small-6'>
@@ -27,6 +29,7 @@ class CartApp extends React.Component<WithI18n, Cart> {
           <a href='#' data-close-drawer='cart-drawer'>{t('cart.general.close')}</a>
         </div>
       </div>
+
       {items.length ? items.map((item) => <div key={item.id}>
         <span>{item.quantity} x {item.title}</span>
         <button className='button' data-remove-from-cart-key={item.key}>{t('cart.general.remove')}</button>
@@ -69,6 +72,15 @@ class CartApp extends React.Component<WithI18n, Cart> {
   private removeFromCartWithDom = async (key: string, target: HTMLElement) => {
     withLoadingUI(target, async () => {
       await this.removeFromCart(key)
+    })
+  }
+
+  private renderExternalDOM = () => {
+    const numItems = this.state.items.length
+    const innerHTML = numItems > 0 ? `${numItems}` : ''
+
+    document.querySelectorAll('[data-cart-count]').forEach((el) => {
+      el.innerHTML = innerHTML
     })
   }
 }

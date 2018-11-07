@@ -29,8 +29,11 @@
       <div class="cell shrink">{% section 'footer' %}</div>
     </div>
 
-    {%- include 'cart-button', class: 'position-fixed show-for-large', style: 'top: 1rem; right: 1rem;' -%}
-    {%- include 'cart-drawer' unless request.path == '/cart' -%}
+    {%- unless request.path == '/cart' -%}
+      {%- include 'cart-button', class: 'position-fixed show-for-large', style: 'top: 1rem; right: 1rem;' -%}
+      {%- include 'cart-drawer' -%}
+    {%- endunless -%}
+
     {%- include 'nav-drawer' -%}
 
     {% include 'var.cart' %}

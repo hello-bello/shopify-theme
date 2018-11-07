@@ -1,15 +1,15 @@
 export default (attr: string, fn: (val: string, target: HTMLElement) => void) => {
-  document.body.addEventListener('click', (e) => {
-    if (e.target instanceof HTMLElement) {
-      const target = e.target as HTMLElement
+  document.body.addEventListener('click', (e: Event) => {
+    if (!e.target) { return }
 
-      // only <a> tags can have the attribute, and we have to look up the DOM to handle cases like <a data-whatever><img></a>
-      const aTarget = target.tagName === 'A' ? target : target.closest('a')
+    const target = e.target as HTMLElement
 
-      if (aTarget && aTarget.hasAttribute(attr)) {
-        e.preventDefault()
-        fn(aTarget.getAttribute(attr) || '', aTarget)
-      }
+    // we have to look up the DOM to handle cases like <a data-whatever><img></a>
+    const aTarget = ['A', 'BUTTON'].includes(target.tagName) ? target : target.closest('a')
+
+    if (aTarget && aTarget.hasAttribute(attr)) {
+      e.preventDefault()
+      fn(aTarget.getAttribute(attr) || '', aTarget)
     }
   })
 }
