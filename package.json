@@ -27,8 +27,10 @@
     "start": "slate-tools start",
     "watch": "slate-tools start --skipFirstDeploy",
     "build": "slate-tools build",
-    "deploy": "slate-tools build && slate-tools deploy --env=production",
-    "zip": "slate-tools build && slate-tools zip"
+    "predeploy": "npm run build",
+    "deploy": "slate-tools deploy --env=production",
+    "prezip": "npm run build",
+    "zip": "slate-tools zip"
   },
   "dependencies": {}
 }
