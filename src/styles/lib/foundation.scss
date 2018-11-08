@@ -1,4 +1,13 @@
+@import 'colors';
+
 $body-font-family: 'Oakes Grotesk', sans-serif;
+$foundation-palette: (
+  primary: map-get($colors, mine-shaft),
+  secondary: #767676,
+  success: #3adb76,
+  warning: #ffae00,
+  alert: #cc4b37,
+);
 
 @import '~foundation-sites/scss/foundation';
 
