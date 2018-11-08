@@ -11,7 +11,7 @@
 
   <div class="cell shrink">
     {%- unless request.path == '/cart' -%}
-      {%- include 'cart-button' -%}
+      {%- include 'cart-button', class: 'position-relative display-block' -%}
     {%- endunless -%}
   </div>
 </div>
