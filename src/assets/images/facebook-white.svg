@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="23px" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 52.3 (67297) - http://www.bohemiancoding.com/sketch -->
+    <title>349638EF-9C9E-4B4A-B7CD-81A6F70639B8</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0 23 0 23 23 0 23"></polygon>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Facebook---White">
+            <g id="Facebook">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <path d="M15.0072653,6.98918367 L13.7361633,6.98918367 C12.7387143,6.98918367 12.5462653,7.46326531 12.5462653,8.15842857 L12.5462653,9.69238776 L14.9246531,9.69238776 L14.6143878,12.0928367 L12.5462653,12.0928367 L12.5462653,18.2526122 L10.0660204,18.2526122 L10.0660204,12.0909592 L7.99320408,12.0909592 L7.99320408,9.6905102 L10.0660204,9.6905102 L10.0660204,7.9195102 C10.0660204,5.86593878 11.3206939,4.74597959 13.1541224,4.74785714 C14.0318776,4.74785714 14.7875918,4.81263265 15.0072653,4.84173469 L15.0072653,6.98918367 Z M11.5,0 C5.14871429,0 0,5.14871429 0,11.5 C0,17.8517551 5.14871429,23 11.5,23 C17.8517551,23 23,17.8517551 23,11.5 C23,5.14871429 17.8517551,0 11.5,0 Z" id="Fill-1" fill="#FFFFFF" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

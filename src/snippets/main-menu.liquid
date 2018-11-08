@@ -25,3 +25,14 @@
     </li>
   {% endfor %}
 </ul>
+
+<ul class="menu">
+  {% for link in linklists.main-menu-social.links %}
+    <li>
+      <a href="{{ link.url }}">
+        <span class="hide-for-large">{%- include 'social-icon', url: link.url, color: 'white' -%}</span>
+        <span class="show-for-large">{%- include 'social-icon', url: link.url, color: 'pink' -%}</span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
