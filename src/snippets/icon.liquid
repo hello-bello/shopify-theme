@@ -1,0 +1,7 @@
+{%- if url == '/search' -%}
+  {%- assign icon_path = 'search-icon.svg' -%}
+{%- elsif url == '/account' -%}
+  {%- assign icon_path = 'account-icon.svg' -%}
+{%- endif -%}
+
+{{ icon_path | asset_url | img_tag }}
