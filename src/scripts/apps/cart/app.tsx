@@ -78,9 +78,12 @@ class CartApp extends React.Component<WithI18n, Cart> {
   private renderExternalDOM = () => {
     const numItems = this.state.items.length
     const innerHTML = numItems > 0 ? `${numItems}` : ''
+    const display = numItems > 0 ? 'flex' : 'none'
 
-    document.querySelectorAll('[data-cart-count]').forEach((el) => {
+    const els: NodeListOf<HTMLElement> = document.querySelectorAll('[data-cart-count]')
+    els.forEach((el) => {
       el.innerHTML = innerHTML
+      el.style.display = display
     })
   }
 }
