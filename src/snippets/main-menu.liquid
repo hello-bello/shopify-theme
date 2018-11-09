@@ -1,38 +1,42 @@
-<ul class="menu vertical">
-  {% for link in linklists.main-menu.links %}
-    <li>
-      <a href="{{ link.url }}" class="h5-6">{{ link.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+<div>
+  <ul class="menu vertical">
+    {% for link in linklists.main-menu.links %}
+      <li>
+        <a href="{{ link.url }}" class="h5-6">{{ link.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
 
-<hr>
+  <hr>
 
-<ul class="menu vertical">
-  {% for link in linklists.main-menu-b.links %}
-    <li>
-      <a href="{{ link.url }}" class="h5-6">{%- include 'icon', url: link.url -%}{{ link.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+  <ul class="menu vertical">
+    {% for link in linklists.main-menu-b.links %}
+      <li>
+        <a href="{{ link.url }}" class="h5-6">{%- include 'icon', url: link.url -%}{{ link.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
 
-<hr>
+  <hr>
 
-<ul class="menu vertical">
-  {% for link in linklists.main-menu-c.links %}
-    <li>
-      <a href="{{ link.url }}" class="font-italic">{{ link.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+  <ul class="menu vertical">
+    {% for link in linklists.main-menu-c.links %}
+      <li>
+        <a href="{{ link.url }}" class="font-italic">{{ link.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
 
-<ul class="menu">
-  {% for link in linklists.main-menu-social.links %}
-    <li>
-      <a href="{{ link.url }}">
-        <span class="hide-for-large">{%- include 'social-icon', url: link.url, color: 'white' -%}</span>
-        <span class="show-for-large">{%- include 'social-icon', url: link.url, color: 'pink' -%}</span>
-      </a>
-    </li>
-  {% endfor %}
-</ul>
+<div>
+  <ul class="menu">
+    {% for link in linklists.main-menu-social.links %}
+      <li>
+        <a href="{{ link.url }}">
+          <span class="hide-for-large">{%- include 'social-icon', url: link.url, color: 'white' -%}</span>
+          <span class="show-for-large">{%- include 'social-icon', url: link.url, color: 'pink' -%}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
