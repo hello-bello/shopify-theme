@@ -1,6 +1,7 @@
 <script>
   var bundlerApp = {
-    collection: {{ collection | json }}
+    collection: {{ collection | json }},
+    products: {{ collection.products | json }}
   };
 </script>
 
