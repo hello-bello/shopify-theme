@@ -1,0 +1,11 @@
+$nav-width: 260px;
+
+.nav-snippet {
+  width: $nav-width !important;
+}
+
+.nav-snippet-shift-large {
+  @include breakpoint(large) {
+    padding-left: $nav-width;
+  }
+}

@@ -1,11 +1,13 @@
-<h1>{{ collection.title }}</h1>
+<div class="nav-snippet-shift-large">
+  <h1>{{ collection.title }}</h1>
 
-<div>
-  {%- for product in collection.products -%}
-    <div>
-      <h2>
-        <a href="{{ product.url }}">{{ product.title }}</a>
-      </h2>
-    </div>
-  {%- endfor -%}
+  <div>
+    {%- for product in collection.products -%}
+      <div>
+        <h2>
+          <a href="{{ product.url }}">{{ product.title }}</a>
+        </h2>
+      </div>
+    {%- endfor -%}
+  </div>
 </div>

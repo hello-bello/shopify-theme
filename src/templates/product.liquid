@@ -1,6 +1,8 @@
-<h1>{{ product.title }}</h1>
+<div class="nav-snippet-shift-large">
+  <h1>{{ product.title }}</h1>
 
-{%- for variant in product.variants -%}
-  <span>{{ variant.title }}</span>
-  <button class="button" type="button" data-add-to-cart-variant-id="{{ variant.id }}">Add to cart</button>
-{%- endfor -%}
+  {%- for variant in product.variants -%}
+    <span>{{ variant.title }}</span>
+    <button class="button" type="button" data-add-to-cart-variant-id="{{ variant.id }}">Add to cart</button>
+  {%- endfor -%}
+</div>
