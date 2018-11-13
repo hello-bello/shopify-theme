@@ -12,7 +12,7 @@ interface Item {
 interface Window {
   cart: Cart,
   cartApp: {
-    add: (variantId: number) => Promise<any>,
+    add: (items: Array<[number, {properties?: object, quantity?: number}?]>) => Promise<boolean>,
   }
 }
 

@@ -38,9 +38,12 @@ class CartApp extends React.Component<WithI18n, Cart> {
     </div>
   }
 
-  private addToCart = async (variantId: number, {properties = {}, quantity = 1}: {properties?: object, quantity?: number} = {}): Promise<boolean> => {
+  private addToCart = async (items: Array<[number, {properties?: object, quantity?: number}?]>): Promise<boolean> => {
     try {
-      await cart.addItem(variantId, {properties, quantity})
+      for (const item of items) {
+        // shopify requires synchronous adding
+        await cart.addItem(...item)
+      }
       await this.getCart()
       window.Drawer.open('cart-drawer')
       return true
@@ -51,7 +54,7 @@ class CartApp extends React.Component<WithI18n, Cart> {
 
   private addToCartWithDom = async (variantId: string, target: HTMLElement) => {
     withLoadingUI(target, async () => {
-      await this.addToCart(parseInt(variantId, 10))
+      await this.addToCart([[parseInt(variantId, 10)]])
     })
   }
 
