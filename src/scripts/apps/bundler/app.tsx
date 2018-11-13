@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import * as React from 'react'
 
 import allocateChoices from './allocate-choices'
+import groupVariantsForCartAdd from './group-variants-for-cart-add'
 
 export interface Props {
   mainProduct?: Product,
@@ -63,9 +64,7 @@ export default class BundlerApp extends React.Component<Props, State> {
 
     if (!selMainVariant || selChoices.length === 0) { return }
 
-    // TODO: convert selChoices to addItem properties (variant id, quantity)
-    const items: any = [[selMainVariant.id], ...selChoices.map((variant) => ([variant.id]))]
-    window.cartApp.add(items)
+    window.cartApp.add([[selMainVariant.id], ...groupVariantsForCartAdd(selChoices)])
   }
 
   private handleChangeMainVariantClick = (selMainVariant: Variant) => () => {
