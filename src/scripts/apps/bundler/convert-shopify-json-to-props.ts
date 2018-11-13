@@ -5,8 +5,9 @@ const TAGS = {
   variants: 'Bundler App Variants',
 }
 
-export default ({collection, products}: {collection: Collection, products: Product[]}): Props => {
+export default ({allocationLength, collection, products}: {allocationLength: number, collection: Collection, products: Product[]}): Props => {
   return {
+    allocationLength,
     mainProduct: products.find((product) => product.tags.includes(TAGS.product)),
     possibleChoices: products
       .filter((product) => product.tags.includes(TAGS.variants))

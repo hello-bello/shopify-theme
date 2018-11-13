@@ -5,6 +5,7 @@ import allocateChoices from './allocate-choices'
 import groupVariantsForCartAdd from './group-variants-for-cart-add'
 
 export interface Props {
+  allocationLength: number,
   mainProduct?: Product,
   possibleChoices?: Variant[],
 }
@@ -72,7 +73,7 @@ export default class BundlerApp extends React.Component<Props, State> {
   }
 
   private handleToggleChoiceClick = (incoming: Variant) => () => {
-    const selChoices = allocateChoices({incoming, choices: this.state.selChoices})
+    const selChoices = allocateChoices({incoming, choices: this.state.selChoices, length: this.props.allocationLength})
     this.setState((state) => ({...state, selChoices}))
   }
 }

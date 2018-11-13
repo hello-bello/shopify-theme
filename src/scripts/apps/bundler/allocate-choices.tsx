@@ -1,12 +1,10 @@
 interface Props {
   incoming: Variant,
   choices: Variant[],
+  length: number,
 }
 
-// TODO: allow for allocation length from shopify
-const ALLOCATION_LENGTH = 7
-
-export default ({incoming, choices}: Props): Variant[] => {
+export default ({incoming, choices, length}: Props): Variant[] => {
   const incomingIdx = choices.findIndex((variant) => variant.id === incoming.id)
 
   const uniqChoices = choices
@@ -22,7 +20,7 @@ export default ({incoming, choices}: Props): Variant[] => {
   const allocation = []
 
   // we loop in reverse to prefer the earliest picked choices
-  for (let i = ALLOCATION_LENGTH; i > 0; --i) {
+  for (let i = length; i > 0; --i) {
     allocation.push(uniqChoices[i % uniqChoices.length])
   }
 

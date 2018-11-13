@@ -1,5 +1,6 @@
 <script>
   var bundlerApp = {
+    allocationLength: {{ collection.metafields['global']['Bundler-App-Allocation-Length'] }},
     collection: {{ collection | json }},
     products: {{ collection.products | json }}
   };
