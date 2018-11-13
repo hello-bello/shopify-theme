@@ -11,6 +11,9 @@ interface Item {
 
 interface Window {
   cart: Cart,
+  cartApp: {
+    add: (variantId: number) => Promise<any>,
+  }
 }
 
 declare module '@shopify/theme-cart'

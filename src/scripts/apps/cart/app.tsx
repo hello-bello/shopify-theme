@@ -10,6 +10,7 @@ class CartApp extends React.Component<WithI18n, Cart> {
     this.setState(() => window.cart)
     addClickListenerForAttr('data-add-to-cart-variant-id', this.addToCartWithDom)
     addClickListenerForAttr('data-remove-from-cart-key', this.removeFromCartWithDom)
+    window.cartApp = {add: this.addToCart}
   }
 
   public render() {
@@ -37,9 +38,9 @@ class CartApp extends React.Component<WithI18n, Cart> {
     </div>
   }
 
-  private addToCart = async (variantId: number): Promise<boolean> => {
+  private addToCart = async (variantId: number, {properties = {}, quantity = 1}: {properties?: object, quantity?: number} = {}): Promise<boolean> => {
     try {
-      await cart.addItem(variantId, {properties: {}, quantity: 1})
+      await cart.addItem(variantId, {properties, quantity})
       await this.getCart()
       window.Drawer.open('cart-drawer')
       return true

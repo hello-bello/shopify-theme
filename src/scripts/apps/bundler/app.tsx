@@ -1,4 +1,3 @@
-import * as cart from '@shopify/theme-cart'
 import classNames from 'classnames'
 import * as React from 'react'
 
@@ -64,11 +63,7 @@ export default class BundlerApp extends React.Component<Props, State> {
 
     if (!selMainVariant || selChoices.length === 0) { return }
 
-    await cart.addItem(selMainVariant.id)
-
-    for (const variant of selChoices) {
-      await cart.addItem(variant.id)
-    }
+    // TODO: convert selChoices to addItem properties (variant id, quantity)
   }
 
   private handleChangeMainVariantClick = (selMainVariant: Variant) => () => {
