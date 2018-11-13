@@ -17,6 +17,8 @@ export default ({incoming, choices}: Props): Variant[] => {
     return arr
   }, incomingIdx === -1 ? [incoming] : [])
 
+  if (uniqChoices.length === 0) { return [] }
+
   const allocation = []
 
   // we loop in reverse to prefer the earliest picked choices
