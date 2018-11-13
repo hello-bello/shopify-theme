@@ -1,5 +1,8 @@
+import * as cart from '@shopify/theme-cart'
 import classNames from 'classnames'
 import * as React from 'react'
+
+import allocateChoices from './allocate-choices'
 
 export interface Props {
   mainProduct?: Product,
@@ -41,24 +44,39 @@ export default class BundlerApp extends React.Component<Props, State> {
         <div>Choose</div>
         {possibleChoices
           .filter((variant) => selMainVariant ? variant.option1 === selMainVariant.option1 : false)
-          .map((variant) => <button className={classNames('button', selChoices.includes(variant) && 'success')} key={variant.id} onClick={this.handleToggleChoiceClick(variant)}>
+          .map((variant) => <button
+            className={classNames('button', selChoices.includes(variant) && 'success')}
+            key={variant.id}
+            onClick={this.handleToggleChoiceClick(variant)}
+          >
           {variant.title}
         </button>)}
+      </div>
+
+      <div>
+        <button className='button' disabled={!selMainVariant || selChoices.length === 0} onClick={this.handleAddToCartClick} type='button'>Add to cart</button>
       </div>
     </div>
   }
 
-  private handleChangeMainVariantClick = (selMainVariant: Variant) => () => {
-    this.setState((state) => ({...state, selMainVariant}))
+  private handleAddToCartClick = async () => {
+    const {selChoices, selMainVariant} = this.state
+
+    if (!selMainVariant || selChoices.length === 0) { return }
+
+    await cart.addItem(selMainVariant.id)
+
+    for (const variant of selChoices) {
+      await cart.addItem(variant.id)
+    }
   }
 
-  // TODO: add appropriate amounts of variants, depending on bundle size
-  // e.g., 1 choice, bundle size 7 = 7 variants of 1 choice
-  // e.g., 2 choices, bundle size 7 = 4 + 3 variants of 2 choices
-  private handleToggleChoiceClick = (choice: Variant) => () => {
-    const {selChoices} = this.state
-    const selChoiceIdx = selChoices.findIndex((variant) => variant.id === choice.id)
-    if (selChoiceIdx === -1) { selChoices.push(choice) } else { selChoices.splice(selChoiceIdx, 1) }
+  private handleChangeMainVariantClick = (selMainVariant: Variant) => () => {
+    this.setState((state) => ({...state, selChoices: [], selMainVariant}))
+  }
+
+  private handleToggleChoiceClick = (incoming: Variant) => () => {
+    const selChoices = allocateChoices({incoming, choices: this.state.selChoices})
     this.setState((state) => ({...state, selChoices}))
   }
 }
