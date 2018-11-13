@@ -1,6 +1,9 @@
 $colors: (
   black: #000,
+  cornflower-blue: #99d6ea,
   cornflower-lilac: #ffb3ab,
+  glacier: #80b2c2,
+  hoki: #658a96,
   mine-shaft: #303030,
   sea-pink: #f09491,
   white: #fff,
@@ -8,6 +11,7 @@ $colors: (
 
 @each $name, $hex in $colors {
   .bg-#{$name} { background-color: $hex; }
+  .border-#{$name} { border-color: $hex; }
   .text-#{$name} { color: $hex; }
   .links-#{$name} { a { color: $hex; } }
 }

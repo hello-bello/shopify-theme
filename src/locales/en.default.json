@@ -29,8 +29,13 @@
   },
   "general": {
     "password_page": {
-      "login_form_password_placeholder": "Password",
-      "login_form_submit": "Enter"
+      "contact_title": "Questions?",
+      "title": "Coming soon!",
+      "signup_form": {
+        "email_placeholder": "Email",
+        "title": "Be the first to know. Sign up for launch updates.",
+        "submit": "Sign Up"
+      }
     }
   },
   "layout": {
@@ -47,7 +52,8 @@
         "shop": "Shop"
       },
       "newsletter_title": "Join our village",
-      "newsletter_body": "Be the first to receive updates, tips, discounts, and the latest info about our diaper patterns!"
+      "newsletter_body": "Be the first to receive updates, tips, discounts, and the latest info about our diaper patterns!",
+      "rights": "All rights reserved"
     }
   }
 }
