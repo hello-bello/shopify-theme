@@ -4,22 +4,25 @@ import {withI18n, WithI18n} from 'react-i18next'
 
 import addClickListenerForAttr from '../../utils/add-click-listener-for-attr'
 import withLoadingUI from '../../utils/with-loading-ui'
+import groupLineItems from './group-line-items'
 
 class CartApp extends React.Component<WithI18n, Cart> {
+  constructor(props: WithI18n) {
+    super(props)
+    this.state = window.cart
+  }
+
   public componentDidMount() {
-    this.setState(() => window.cart)
     addClickListenerForAttr('data-add-to-cart-variant-id', this.addToCartWithDom)
     addClickListenerForAttr('data-remove-from-cart-key', this.removeFromCartWithDom)
     window.cartApp = {add: this.addToCart}
   }
 
   public render() {
-    if (!this.state) { return null }
+    this.renderExternalDOM()
 
     const {t} = this.props
-    const {items} = this.state
-
-    this.renderExternalDOM()
+    const items = groupLineItems(this.state.items)
 
     return <div>
       <div className='grid-x'>
@@ -31,10 +34,24 @@ class CartApp extends React.Component<WithI18n, Cart> {
         </div>
       </div>
 
-      {items.length ? items.map((item) => <div key={item.id}>
-        <span>{item.quantity} x {item.title}</span>
-        <button className='button' data-remove-from-cart-key={item.key}>{t('cart.general.remove')}</button>
-      </div>) : <div>{t('cart.general.empty')}</div>}
+      {(() => {
+        if (!items.length) { return <div>{t('cart.general.empty')}</div> }
+
+        return items.map((item) => {
+          if (Array.isArray(item)) {
+            const [parentItem, ...childItems] = item
+            return <div key={parentItem.id}>
+              <div>{parentItem.quantity} x {parentItem.title}</div>
+              <div>{childItems.map((child) => `${child.variant_title} x ${child.quantity}`).join(', ')}</div>
+              <button className='button' data-remove-from-cart-key={parentItem.key}>{t('cart.general.remove')}</button>
+            </div>
+          } else {
+            return <div key={item.id}>
+              <span>{item.quantity} x {item.title}</span>
+              <button className='button' data-remove-from-cart-key={item.key}>{t('cart.general.remove')}</button>
+            </div>
+          }})
+      })()}
     </div>
   }
 

@@ -5,7 +5,12 @@ interface Cart {
 interface Item {
   id: number,
   key: string,
+  properties?: {
+    bundle_id?: string,
+    parent_bundle_id?: string,
+  },
   quantity: number,
+  variant_title: string,
   title: string,
 }
 
