@@ -65,7 +65,12 @@ export default class BundlerApp extends React.Component<Props, State> {
 
     if (!selMainVariant || selChoices.length === 0) { return }
 
-    window.cartApp.add([[selMainVariant.id], ...groupVariantsForCartAdd(selChoices)])
+    const bundleId = (new Date()).getTime().toString()
+
+    window.cartApp.add([
+      [selMainVariant.id, {properties: {bundle_id: bundleId}}],
+      ...groupVariantsForCartAdd(selChoices, {parent_bundle_id: bundleId}),
+    ])
   }
 
   private handleChangeMainVariantClick = (selMainVariant: Variant) => () => {
