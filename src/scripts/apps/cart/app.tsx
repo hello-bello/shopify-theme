@@ -43,12 +43,12 @@ class CartApp extends React.Component<WithI18n, Cart> {
             return <div key={parentItem.id}>
               <div>{parentItem.quantity} x {parentItem.title}</div>
               <div>{childItems.map((child) => `${child.variant_title} x ${child.quantity}`).join(', ')}</div>
-              <button className='button' data-remove-from-cart-key={parentItem.key}>{t('cart.general.remove')}</button>
+              <button className='button' onClick={this.handleRemoveFromCartClick(item)}>{t('cart.general.remove')}</button>
             </div>
           } else {
             return <div key={item.id}>
               <span>{item.quantity} x {item.title}</span>
-              <button className='button' data-remove-from-cart-key={item.key}>{t('cart.general.remove')}</button>
+              <button className='button' onClick={this.handleRemoveFromCartClick([item])}>{t('cart.general.remove')}</button>
             </div>
           }})
       })()}
@@ -80,9 +80,16 @@ class CartApp extends React.Component<WithI18n, Cart> {
     this.setState(() => contents)
   }
 
-  private removeFromCart = async (key: string): Promise<boolean> => {
+  private handleRemoveFromCartClick = (items: Item[]) => () => {
+    this.removeFromCart(items.map((item) => item.key))
+  }
+
+  private removeFromCart = async (keys: string[]): Promise<boolean> => {
     try {
-      await cart.removeItem(key)
+      for (const key of keys) {
+        // shopify requires synchronous removing
+        await cart.removeItem(key)
+      }
       await this.getCart()
       return true
     } catch (e) {
@@ -92,7 +99,7 @@ class CartApp extends React.Component<WithI18n, Cart> {
 
   private removeFromCartWithDom = async (key: string, target: HTMLElement) => {
     withLoadingUI(target, async () => {
-      await this.removeFromCart(key)
+      await this.removeFromCart([key])
     })
   }
 
