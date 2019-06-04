@@ -18,8 +18,14 @@
   </head>
 
   <body>
-    {% include 'header' %}
-    {{ content_for_layout }}
-    {% include 'footer' %}
+    <div class="off-canvas-wrapper">
+      <div class="off-canvas-content" data-off-canvas-content>
+        {% include 'header' %}
+        {{ content_for_layout }}
+        {% include 'footer' %}
+      </div>
+
+      {% include 'nav-drawer' %}
+    </div>
   </body>
 </html>
