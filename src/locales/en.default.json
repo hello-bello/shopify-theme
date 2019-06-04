@@ -29,13 +29,8 @@
   },
   "general": {
     "password_page": {
-      "contact_title": "Questions?",
-      "title": "Coming soon!",
-      "signup_form": {
-        "email_placeholder": "Email",
-        "title": "Be the first to know. Sign up for launch updates.",
-        "submit": "Sign Up"
-      }
+      "password_placeholder": "Got a password?",
+      "title": "Coming soon!"
     }
   },
   "layout": {

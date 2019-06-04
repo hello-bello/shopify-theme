@@ -17,24 +17,9 @@
     {{ content_for_header }}
   </head>
 
-  <body class="grid-y" style="min-height: 100vh;">
-    <div class="cell shrink hide-for-large">{% section 'header' %}</div>
-
-    <div class="cell flex-child-grow grid-y">
-      <div class="cell flex-child-grow">{{ content_for_layout }}</div>
-      <div class="cell shrink">{% section 'footer' %}</div>
-    </div>
-
-    <div class="position-fixed show-for-large" style="top: 0; left: 0;">{%- include 'nav' -%}</div>
-
-    {%- unless request.path == '/cart' -%}
-      {%- include 'cart-button', class: 'position-fixed show-for-large', style: 'top: 1rem; right: 1rem;' -%}
-      {%- include 'cart-drawer' -%}
-    {%- endunless -%}
-
-    {%- include 'nav-drawer' -%}
-
-    {% include 'var.cart' %}
-    {% include 'var.locale' %}
+  <body>
+    {% include 'header' %}
+    {{ content_for_layout }}
+    {% include 'footer' %}
   </body>
 </html>
