@@ -1,11 +1,11 @@
 {
-  "name": "hb-theme",
+  "name": "theme",
   "version": "1.0.0",
   "private": true,
   "author": "Ethan Jon",
-  "description": "The Shopify theme Hello Bello.",
+  "description": "A Shopify theme starter repo.",
   "devDependencies": {
-    "@shopify/slate-tools": "^1.0.0-beta.12",
+    "@shopify/slate-tools": "^1.0.0-beta.18",
     "@shopify/theme-cart": "^1.0.1",
     "@types/classnames": "^2.2.6",
     "@types/i18next": "^11.9.3",
