@@ -38,17 +38,11 @@
       "create_account": "Create account",
       "login": "Login",
       "logout": "Logout"
-    },
-    "footer": {
-      "menu_titles": {
-        "account": "Account",
-        "company": "Company",
-        "connect": "Connect",
-        "shop": "Shop"
-      },
-      "newsletter_title": "Join our village",
-      "newsletter_body": "Be the first to receive updates, tips, discounts, and the latest info about our diaper patterns!",
-      "rights": "All rights reserved"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart"
     }
   }
 }

@@ -54,9 +54,9 @@ export default () => {
 
   return <div>
     <h2>Cart</h2>
-    {state.items.map((item) => <div key={item.id}>
+    {state.items.length ? state.items.map((item) => <div key={item.id}>
       <span>{item.title} x {item.quantity}</span>
       <span onClick={removeItem(item.key)}>Remove</span>
-    </div>)}
+    </div>) : <div>Nothing in your cart!</div>}
   </div>
 }

@@ -3,7 +3,9 @@
 
   {% for variant in product.variants %}
     <div>
-      <a data-add-to-cart="{{ variant.id }}">{{ variant.title }}</a>
+      <button class="button" data-add-to-cart="{{ variant.id }}">
+        {{ 'products.product.add_to_cart' | t }} - {{ variant.price | money }}
+      </button>
     </div>
   {% endfor %}
 </div>
