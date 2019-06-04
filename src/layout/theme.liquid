@@ -20,9 +20,17 @@
   <body>
     <div class="off-canvas-wrapper">
       <div class="off-canvas-content" data-off-canvas-content>
-        {% include 'header' %}
-        {{ content_for_layout }}
-        {% include 'footer' %}
+        <div class="grid-y grid-frame">
+          <div class="cell shrink">
+            {% include 'header' %}
+          </div>
+          <div class="cell auto">
+            {{ content_for_layout }}
+          </div>
+          <div class="cell shrink">
+            {% include 'footer' %}
+          </div>
+        </div>
       </div>
 
       {% include 'nav-drawer' %}
