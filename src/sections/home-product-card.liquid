@@ -1,0 +1,17 @@
+{% assign product = all_products[section.settings.product] %}
+
+<div>
+  <a href="{{ product.url }}">{{ product.title }}</a>
+</div>
+
+{% schema %}{
+  "presets": [{
+    "category": "Home",
+    "name": "Product Card"
+  }],
+  "settings": [{
+    "label": "Product",
+    "id": "product",
+    "type": "product"
+  }]
+}{% endschema %}
