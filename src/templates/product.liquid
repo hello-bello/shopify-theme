@@ -2,6 +2,8 @@
   <h1>{{ product.title }}</h1>
 
   {% for variant in product.variants %}
-    <span>{{ variant.title }}</span>
+    <div>
+      <a data-add-to-cart="{{ variant.id }}">{{ variant.title }}</a>
+    </div>
   {% endfor %}
 </div>
