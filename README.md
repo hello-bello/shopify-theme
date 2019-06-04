@@ -4,11 +4,8 @@ This is the Launched LA-opinionated starting point for Shopify themes. It includ
 - Slate
 - Typescript (strict mode)
 - React
-- I18next (React)
-- Foundation CSS (no JS)
+- Foundation CSS + JS
 - Cart app
-- Drawer plugin
-- Basic site layout
 
 ## Instructions
 
@@ -19,3 +16,5 @@ This is the Launched LA-opinionated starting point for Shopify themes. It includ
 - `cp example.env .env`
 - Copy the private app password and theme ID to .env
 - `npm start`
+- Might want to enable customer accounts from Shopify Settings -> Checkout.
+- Might want to create a few products and edit the theme to add a few `home-product-card` blocks.
