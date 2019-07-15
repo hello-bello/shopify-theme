@@ -9,7 +9,13 @@
 
     <title>{{ shop.name }}</title>
 
-    <meta name="description" content="">
+    {% if settings.site_favicon != blank %}
+      <link rel="shortcut icon" href="{{ settings.site_favicon | img_url: '32x32' }}" type="image/png">
+    {% endif %}
+
+    {% if page_description != blank %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
 
     {% include 'style-tags', layout: 'theme' %}
     {% include 'script-tags', layout: 'theme' %}

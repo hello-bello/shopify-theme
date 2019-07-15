@@ -1,10 +1,15 @@
-[
-  {
-    "name": "theme_info",
-    "theme_name": "Launched LA",
-    "theme_version": "1.0.0",
-    "theme_author": "Ethan Jon",
-    "theme_documentation_url": "https://github.com/launched-la/theme",
-    "theme_support_url": "https://github.com/launched-la/theme"
-  }
-]
+[{
+  "name": "theme_info",
+  "theme_name": "Launched LA",
+  "theme_version": "1.0.0",
+  "theme_author": "Ethan Jon",
+  "theme_documentation_url": "https://github.com/launched-la/theme",
+  "theme_support_url": "https://github.com/launched-la/theme"
+}, {
+  "name": "Site Icons",
+  "settings": [{
+    "id": "site_favicon",
+    "label": "Favicon",
+    "type": "image_picker"
+  }]
+}]
