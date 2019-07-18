@@ -28,7 +28,7 @@
     "watch": "slate-tools start --skipFirstDeploy",
     "build": "slate-tools build",
     "predeploy": "npm run build",
-    "deploy": "slate-tools deploy --env=production",
+    "deploy": "slate-tools deploy",
     "prezip": "npm run build",
     "zip": "slate-tools zip"
   },
