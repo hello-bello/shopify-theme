@@ -1,3 +1,5 @@
 import 'foundation-sites'
 
-$(document).foundation()
+$(() => {
+  $(document).foundation()
+})
